@@ -29,18 +29,16 @@ export function TextbookDemoClient() {
             Living textbook
           </p>
           <h1 className="mt-3 font-serif text-4xl tracking-tight text-[color:var(--color-navy)]">
-            动态教材演示
+            Living textbook demo
           </h1>
           <p className="mt-4 text-sm leading-relaxed text-[color:var(--color-muted)]">
             {courseId === "io-4"
-              ? "《产业经济学四》已挂载完整讲义结构（与 Drive 讲义文件名 Lecture_Notes_for_IE_4__no_exercise_ 对齐）；可切换小节与视角。"
-              : "默认亦可切换到《产业经济学四》阅读完整博弈论讲义；其它课程为精简演示段落。"}
+              ? "Course IV loads the full chapter structure from the lecture notes PDF. Switch sections and perspective below."
+              : "Switch to Course IV for the full games-and-strategies notes; other courses show short demo excerpts."}
           </p>
         </div>
         <div className="flex flex-col items-start gap-3">
-          <label className="text-xs uppercase tracking-[0.14em] text-[color:var(--color-muted)]">
-            预览课程
-          </label>
+          <label className="text-xs uppercase tracking-[0.14em] text-[color:var(--color-muted)]">Preview course</label>
           <select
             value={courseId}
             onChange={(e) => setCourseId(e.target.value as CourseId)}
@@ -62,8 +60,7 @@ export function TextbookDemoClient() {
           <div className="mt-10 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
             <PerspectiveToggle value={perspective} onChange={setPerspective} />
             <p className="text-xs text-[color:var(--color-muted)]">
-              当前课程：
-              <span className="text-[color:var(--color-carbon)]">{pack.label}</span>
+              Course: <span className="text-[color:var(--color-carbon)]">{pack.label}</span>
             </p>
           </div>
 
@@ -97,7 +94,7 @@ export function TextbookDemoClient() {
                   className="mt-10 rounded-sm border px-5 py-4"
                 >
                   <p className="text-xs font-medium uppercase tracking-[0.14em] text-[color:var(--color-wood)]">
-                    学生贡献案例
+                    Student contribution
                   </p>
                   <p className="mt-2 font-medium text-[color:var(--color-carbon)]">{active!.studentCase!.title}</p>
                   <p className="mt-2 text-sm leading-relaxed text-[color:var(--color-carbon)]">

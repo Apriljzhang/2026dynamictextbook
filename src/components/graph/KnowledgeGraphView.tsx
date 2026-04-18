@@ -16,10 +16,10 @@ export default function KnowledgeGraphView() {
           Knowledge graph
         </p>
         <h1 className="mt-3 font-serif text-4xl tracking-tight text-[color:var(--color-navy)]">
-          交互式知识图谱
+          Interactive knowledge graph
         </h1>
         <p className="mt-4 text-sm leading-relaxed text-[color:var(--color-muted)]">
-          节点按四门《产业经济学》课程着色；拖拽画布平移，滚轮缩放。点击节点查看与其它课程单元的跨课程链接（演示数据）。
+          Nodes are coloured by course. Drag the canvas, scroll to zoom, and click a node for cross-course links (mock data).
         </p>
       </header>
 
@@ -40,9 +40,9 @@ export default function KnowledgeGraphView() {
           <NodeDetailPanel detail={selected} onClose={() => setSelected(null)} />
         ) : (
           <aside className="hidden flex-col justify-center border-l border-[color:var(--color-border)] bg-[color:var(--color-bg)] p-8 text-sm text-[color:var(--color-muted)] lg:flex">
-            <p className="font-serif text-lg text-[color:var(--color-navy)]">点击节点</p>
+            <p className="font-serif text-lg text-[color:var(--color-navy)]">Select a node</p>
             <p className="mt-3 leading-relaxed">
-              在左侧力导向图中选择概念，以查看该知识点在四门课程中的关联单元与关系类型。
+              Click a concept in the force-directed graph to see how it links to units in the four courses.
             </p>
           </aside>
         )}

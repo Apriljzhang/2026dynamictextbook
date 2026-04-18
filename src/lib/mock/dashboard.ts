@@ -4,24 +4,24 @@ import { COURSES } from "@/lib/mock/courses";
 export const kpiMetrics: KpiMetric[] = [
   {
     id: "coverage",
-    label: "全库知识点覆盖率（四门课合计）",
+    label: "Knowledge coverage (all four courses)",
     value: "78%",
-    hint: "基于教研大纲与图谱对齐度估算",
-    trend: "+4.2% 本月",
+    hint: "Estimated alignment between the knowledge graph and the syllabus.",
+    trend: "+4.2% this month",
   },
   {
     id: "contributions",
-    label: "学生贡献条目",
+    label: "Student contributions",
     value: "1,284",
-    hint: "含案例、注释与思考题补充",
-    trend: "+126 本周",
+    hint: "Cases, notes, and study questions added by students.",
+    trend: "+126 this week",
   },
   {
     id: "ai-pass",
-    label: "AI 初审通过率",
+    label: "AI pre-screen pass rate",
     value: "62%",
-    hint: "进入教授终审队列前的自动筛选",
-    trend: "稳定",
+    hint: "Share of submissions cleared before faculty review.",
+    trend: "Stable",
   },
 ];
 

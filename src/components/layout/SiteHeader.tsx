@@ -1,10 +1,10 @@
 import Link from "next/link";
 
 const nav = [
-  { href: "/", label: "概览" },
-  { href: "/knowledge-graph", label: "知识图谱" },
-  { href: "/textbook-demo", label: "动态教材" },
-  { href: "/ai-review", label: "AI 审核" },
+  { href: "/", label: "Overview" },
+  { href: "/knowledge-graph/", label: "Knowledge graph" },
+  { href: "/textbook-demo/", label: "Living textbook" },
+  { href: "/ai-review/", label: "AI review" },
 ];
 
 export function SiteHeader() {
@@ -13,10 +13,10 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-6xl flex-col gap-4 px-6 py-6 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <p className="font-serif text-2xl tracking-tight text-[color:var(--color-navy)]">
-            教育改革项目
+            Education reform demo
           </p>
           <p className="mt-1 max-w-md text-sm leading-relaxed text-[color:var(--color-muted)]">
-            产业经济学 · 动态教材与知识图谱演示原型
+            Industrial economics · Living textbook & knowledge graph prototype
           </p>
         </div>
         <nav className="flex flex-wrap gap-1 text-sm">

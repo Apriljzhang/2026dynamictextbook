@@ -14,9 +14,9 @@ export function CourseSummaryStrip({ progress }: { progress: CourseProgress[] })
     >
       <Card className="p-0">
         <div className="border-b border-[color:var(--color-border)] px-6 py-4">
-          <h2 className="font-serif text-xl text-[color:var(--color-navy)]">四门课程进度摘要</h2>
+          <h2 className="font-serif text-xl text-[color:var(--color-navy)]">Course progress</h2>
           <p className="mt-1 text-sm text-[color:var(--color-muted)]">
-            与知识图谱同一内容域：覆盖率、学生贡献与 AI 初审通过率为模拟指标。
+            Same domain as the knowledge graph: coverage, student entries, and AI pass rate (mock).
           </p>
         </div>
         <div className="grid gap-4 p-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -40,15 +40,15 @@ export function CourseSummaryStrip({ progress }: { progress: CourseProgress[] })
                 </div>
                 <dl className="mt-4 space-y-2 text-xs text-[color:var(--color-carbon)]">
                   <div className="flex justify-between gap-2">
-                    <dt className="text-[color:var(--color-muted)]">知识点覆盖</dt>
+                    <dt className="text-[color:var(--color-muted)]">Coverage</dt>
                     <dd className="font-medium tabular-nums">{p.coveragePct}%</dd>
                   </div>
                   <div className="flex justify-between gap-2">
-                    <dt className="text-[color:var(--color-muted)]">学生贡献</dt>
+                    <dt className="text-[color:var(--color-muted)]">Student entries</dt>
                     <dd className="font-medium tabular-nums">{p.studentEntries}</dd>
                   </div>
                   <div className="flex justify-between gap-2">
-                    <dt className="text-[color:var(--color-muted)]">AI 通过率</dt>
+                    <dt className="text-[color:var(--color-muted)]">AI pass rate</dt>
                     <dd className="font-medium tabular-nums">{p.aiPassRate}%</dd>
                   </div>
                 </dl>

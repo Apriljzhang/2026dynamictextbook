@@ -22,6 +22,7 @@
 
 # misc
 .npm-cache
+.venv
 .DS_Store
 *.pem
 

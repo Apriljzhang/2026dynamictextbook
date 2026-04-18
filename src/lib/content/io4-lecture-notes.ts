@@ -1,13 +1,18 @@
 /**
- * 《产业经济学四：博弈与策略》讲义内容域。
- * 与 Google Drive 讲义文件名对齐：Lecture_Notes_for_IE_4__no_exercise_（无习题版）。
- * 因 Drive 需登录，正文为课程级原创撰写，便于演示；若你提供本地 PDF，可替换为提取文本。
+ * Industrial Economics IV — content aligned with:
+ * Games and Strategies in Industrial Economics (Yu & Xu, Tuatara Publishing, 2025).
+ * PDF: Lecture_Notes_for_IE_4__A5__pages_reset_.pdf
  */
 
 export const IO4_SOURCE = {
-  courseTitle: "《产业经济学四：博弈与策略》",
-  fileName: "Lecture_Notes_for_IE_4__no_exercise_.pdf",
-  /** 原始讲义（需有查看权限） */
+  courseTitle: "Industrial Economics IV: Games and Strategies",
+  fileName: "Lecture_Notes_for_IE_4__A5__pages_reset_.pdf",
+  bookTitleEn: "Games and Strategies in Industrial Economics",
+  authors: "Zhixian Yu, Youzong Xu",
+  publisher: "Tuatara Publishing",
+  year: 2025,
+  moduleCode: "BUSI3197",
+  moduleTitleEn: "Industrial Economics IV: Games and Strategies",
   driveUrl: "https://drive.google.com/file/d/1fDlwPtwXh63jctmbfL_4XD13uiESqXFI/view",
 } as const;
 
@@ -15,6 +20,7 @@ export interface Io4Section {
   id: string;
   n: string;
   title: string;
+  titleEn: string;
   teacher: { paragraphs: string[] };
   student: { paragraphs: string[] };
   studentCase?: { title: string; body: string };
@@ -22,143 +28,151 @@ export interface Io4Section {
 
 export const io4LectureSections: Io4Section[] = [
   {
-    id: "io4-01",
-    n: "一",
-    title: "导论：策略互动、均衡与产业组织",
+    id: "io4-ch1",
+    n: "1",
+    title: "Non-cooperative game theory",
+    titleEn: "Chapter 1",
     teacher: {
       paragraphs: [
-        "博弈论研究多个理性决策者在相互依赖环境中的策略选择与结果。产业组织中的定价、进入、研发、并购与规制，都可以抽象为参与者在既定规则下的策略互动。",
-        "我们关心的不仅是「会发生什么」，还包括：结果是否为某种均衡概念（如纳什均衡、子博弈精炼均衡）所刻画；政策或制度如何改变博弈结构，从而改变均衡与福利。",
+        "Game theory studies strategically interdependent behaviour: what I do affects you, and what you do affects me. Throwing a ball against a wall is not a game-theoretic situation because the path is predictable; throwing a ball at another person is, because the outcome depends on how both sides respond, including higher-order beliefs about what each believes the other believes.",
+        "Game theory is central to modern microeconomics. Learning it means strengthening interactive thinking—putting yourself in others’ shoes and reasoning about what they think you will do. Basic ingredients are players, available actions, and payoffs. Games differ along many dimensions: non-cooperative versus cooperative emphasis, static versus dynamic timing, zero-sum versus positive-sum payoffs, and more.",
+        "Two benchmark assumptions are rationality (players aim to maximise their own payoffs and can compute best responses) and common knowledge (information is not only known, but known to be known, and so on). These are stylised, but they provide a sharp benchmark from which richer behavioural or evolutionary models can be developed.",
       ],
     },
     student: {
       paragraphs: [
-        "可以把「博弈」想成：你的选择会影响别人，别人的选择也会反过来影响你——不是单机游戏，而是联机。",
-        "产业里很多看似「价格战」「专利战」的现象，本质都是在找：在大家都理性时，哪种行为模式会稳定下来。",
+        "Think of it as “your move changes my payoff, and mine changes yours.” Against a wall, physics decides; against a person, psychology and strategy decide.",
+        "Rationality and common knowledge are simplifying assumptions—like frictionless planes in physics. They make the logic clean before you add real-world messiness.",
       ],
     },
   },
   {
-    id: "io4-02",
-    n: "二",
-    title: "标准式博弈与占优策略",
+    id: "io4-ch2",
+    n: "2",
+    title: "Cooperative game theory",
+    titleEn: "Chapter 2",
     teacher: {
       paragraphs: [
-        "标准式博弈由参与人、策略集与支付函数刻画。若存在占优策略，理性参与人将选择该策略，而不依赖对他人行为的信念。",
-        "反复剔除严格劣策略可以缩小理性策略集合；若最终收敛到唯一策略组合，则该组合具有更强的预测力。",
+        "Cooperative game theory focuses on settings where agreements and communication matter: how to divide surplus from joint production or allocate costs of a joint project. Non-cooperative game theory, by contrast, emphasises individual strategic choices without necessarily modelling the bargaining protocol.",
+        "Reasonable cost or surplus sharing rules are often required to satisfy efficiency and fairness properties. Illustrations include weak Pareto efficiency, monotonicity, symmetry, and scale invariance.",
+        "The Nash bargaining solution, the Shapley value, and the nucleolus are classical solution concepts that select a unique allocation among many possibilities, each embodying different axiomatic foundations.",
       ],
     },
     student: {
       paragraphs: [
-        "占优策略就是：不管别人怎么选，你选它都更好——像「无论室友是否打扫，我先把自己的区域整理好」那种稳妥选项（示例）。",
-        "如果没有占优策略，就要进入下一讲：大家互相猜对方会怎么做。",
-      ],
-    },
-  },
-  {
-    id: "io4-03",
-    n: "三",
-    title: "纳什均衡：信念、稳定性与效率",
-    teacher: {
-      paragraphs: [
-        "纳什均衡要求：给定其他参与人的策略，每个参与人都在最大化自身支付；因此没有人愿意单方面偏离。它刻画了一种「相互一致」的信念与行为组合。",
-        "同一博弈可能存在多个纳什均衡，需要精炼（如风险占优、帕累托占优）或引入动态、重复、协调机制来解释实际选择。纳什均衡也未必帕累托有效，囚徒困境即典型。",
-      ],
-    },
-    student: {
-      paragraphs: [
-        "纳什均衡很朴素：大家都选定了，而且没人想偷偷改主意——因为一改可能更亏。",
-        "但它不一定是「对集体最好」：每个人都理性，也可能一起走进对大家都次优的结果。",
-      ],
-    },
-  },
-  {
-    id: "io4-04",
-    n: "四",
-    title: "混合策略与随机化",
-    teacher: {
-      paragraphs: [
-        "在有限博弈中，纳什均衡的存在性在允许混合策略（概率分布）时得到保证。混合策略均衡常出现在零和博弈或竞争性行为中，例如随机抽查、随机定价（在特定模型中）。",
-        "解释混合均衡需要谨慎：它可能反映真实随机化，也可能反映参与者信念的异质性或模型外的扰动。",
-      ],
-    },
-    student: {
-      paragraphs: [
-        "混合策略就是「按概率抽签」：不是因为你爱随机，而是为了让对手猜不透你。",
-        "生活里像「抽查」「随机派单」，有时就是在制造不确定性，让投机更难。",
-      ],
-    },
-  },
-  {
-    id: "io4-05",
-    n: "五",
-    title: "扩展式博弈、信息集与子博弈精炼",
-    teacher: {
-      paragraphs: [
-        "扩展式博弈用博弈树描述行动顺序与信息结构；信息集刻画参与人观察到的不确定性。子博弈精炼均衡要求在每个子博弈上都构成纳什均衡，从而排除依赖于不可置信威胁的均衡。",
-        "在产业情境中，进入—威慑、承诺投资、产能选择等常建模为动态博弈；承诺的可信性取决于是否改变后续子博弈的支付结构。",
-      ],
-    },
-    student: {
-      paragraphs: [
-        "动态博弈就是「有先有后」：后行动的人会看你先做了什么，所以先行动有时反而是优势（也可能变成负担）。",
-        "「空口威胁」常常不可信：如果真走到那一步对你也不利，别人就不会把你的威胁当真。",
-      ],
-    },
-  },
-  {
-    id: "io4-06",
-    n: "六",
-    title: "重复博弈、合作与惩罚机制",
-    teacher: {
-      paragraphs: [
-        "在无限或足够长且贴现因子足够高的重复博弈中，合作结果可以通过触发策略（grim trigger、tit-for-tat 等）维持；民间定理指出大量支付向量可在子博弈精炼均衡中实现。",
-        "产业组织中的默契合谋、隐性协调与反垄断执法，都与重复互动中的激励相容与可观测性密切相关。",
-      ],
-    },
-    student: {
-      paragraphs: [
-        "一次博弈里大家容易「卷到死」；但如果明天还要见面，合作就更可能：因为背叛会被报复。",
-        "所以「长期关系」本身就会改变博弈结果——这也是为什么平台、会员、长期合同会改变行为。",
+        "Here the question is “who gets what” when people can talk and contract—splitting surplus or sharing a bill.",
+        "The elevator problem in the book is a running example: different floors benefit differently, so who pays how much?",
       ],
     },
     studentCase: {
-      title: "寝室保洁与值日表",
-      body: "四人寝室里公共空间清洁：个人承担成本，收益却共享，容易出现搭便车。把「轮流值日 + 明确惩罚」写进规则，相当于改变重复博弈中的惩罚结构，使合作均衡更容易自我实施。",
+      title: "Elevator problem (old buildings)",
+      body: "When an elevator benefits everyone unevenly, a fair rule should respect who gains more, who can pay, and efficiency. Weak Pareto, monotonicity, and symmetry are the textbook properties that discipline “reasonable” shares—useful for class discussion.",
     },
   },
   {
-    id: "io4-07",
-    n: "七",
-    title: "寡头竞争：古诺、伯川德与策略互补/替代",
+    id: "io4-ch3",
+    n: "3",
+    title: "Bargaining",
+    titleEn: "Chapter 3",
     teacher: {
       paragraphs: [
-        "古诺模型以产量为策略变量，伯川德模型以价格为策略变量；两者刻画了不同的竞争逻辑与均衡性质。策略互补/替代决定了比较静态与政策含义。",
-        "这些经典模型是后续更复杂动态、信息不对称与研发博弈模型的起点。",
+        "Bargaining blends cooperation and competition: agreement creates gains from trade, but each side wants a larger share. Cooperative approaches deliver axiomatic splits; non-cooperative models spell out who offers when and solve for subgame-perfect outcomes.",
+        "Rubinstein’s infinite-horizon alternating-offer model is a workhorse: players discount the future, take turns proposing and responding, and under standard conditions a unique subgame-perfect equilibrium exists.",
       ],
     },
     student: {
       paragraphs: [
-        "古诺像「大家先定产量，再看价格怎么被市场决定」；伯川德像「直接标价抢客」。",
-        "所以有时产量竞争和价格战看起来完全不同——模型就是在帮你分清机制。",
+        "No deal often hurts both sides; the fight is over the split. Alternating offers + patience usually determine who gets more in equilibrium.",
       ],
     },
   },
   {
-    id: "io4-08",
-    n: "八",
-    title: "不完全信息、信号与信息经济学入门",
+    id: "io4-ch4",
+    n: "4",
+    title: "Monopoly",
+    titleEn: "Chapter 4",
     teacher: {
       paragraphs: [
-        "当一方拥有私人信息时，均衡往往涉及信念更新与分离/混同均衡；信号与甄别机制在广告、质量认证、定价菜单中广泛存在。",
-        "这些主题为信息经济学与机制设计提供基础，也可与竞争政策中的排他协议、最惠国条款等议题相连接。",
+        "A monopolist is not a dictator who can ignore demand: market demand still constrains feasible price–quantity pairs. Profit maximisation equates marginal revenue to marginal cost.",
+        "Extensions include multi-product pricing, intertemporal pricing, and dominant-firm models with a competitive fringe.",
       ],
     },
     student: {
       paragraphs: [
-        "不完全信息就是「有人知道你不知道的事」：好坏混在一起时，市场会用价格、品牌、保修来传递信号。",
-        "你看到的很多「套餐」「会员等级」，有时不只是促销，也是在筛选不同类型的用户。",
+        "Even a monopolist faces a demand curve: charge more, sell less. The sweet spot is still MR = MC.",
       ],
+    },
+  },
+  {
+    id: "io4-ch5",
+    n: "5",
+    title: "Oligopoly",
+    titleEn: "Chapter 5",
+    teacher: {
+      paragraphs: [
+        "Cournot and Bertrand are stylised portraits of oligopoly: quantity versus price competition. They are deliberately simplified so comparative statics stay transparent before adding differentiation or dynamics.",
+        "Stackelberg leadership introduces sequential moves: the leader anticipates followers’ best responses.",
+      ],
+    },
+    student: {
+      paragraphs: [
+        "Cournot: pick quantities, let price clear the market. Bertrand: fight on price. Stackelberg: someone moves first—order matters.",
+      ],
+    },
+  },
+  {
+    id: "io4-ch6",
+    n: "6",
+    title: "Product differentiation",
+    titleEn: "Chapter 6",
+    teacher: {
+      paragraphs: [
+        "With differentiated products, consumers care about both which variant they prefer and how much they pay. Bertrand competition with differentiated demand yields upward-sloping best responses in prices.",
+        "Spatial models (Hotelling, Salop) represent differentiation on a line or circle; clustering can emerge when firms chase the centre of demand.",
+      ],
+    },
+    student: {
+      paragraphs: [
+        "If products differ, firms need not race to marginal cost on price alone. Spatial models literally put “distance” between products—think travel cost or taste gaps.",
+      ],
+    },
+  },
+  {
+    id: "io4-ch7",
+    n: "7",
+    title: "Price discrimination",
+    titleEn: "Chapter 7",
+    teacher: {
+      paragraphs: [
+        "Price discrimination requires market power, information about willingness to pay (or menus that induce self-selection), and limits on resale.",
+        "First-degree discrimination captures all surplus; uniform monopoly pricing creates deadweight loss; second-degree tools include two-part tariffs and quantity discounts.",
+      ],
+    },
+    student: {
+      paragraphs: [
+        "You need power to price discriminate, a way to separate types, and a way to stop cheap units being resold to high-value buyers.",
+      ],
+    },
+  },
+  {
+    id: "io4-ch8",
+    n: "8",
+    title: "Information",
+    titleEn: "Chapter 8",
+    teacher: {
+      paragraphs: [
+        "Asymmetric information pervades product markets. Akerlof’s lemons model shows how adverse selection can unravel quality.",
+        "Later models study imperfectly observed prices, signalling, and Bayesian persuasion.",
+      ],
+    },
+    student: {
+      paragraphs: [
+        "If buyers cannot tell lemons from peaches, average willingness to pay falls—and good sellers may exit first.",
+      ],
+    },
+    studentCase: {
+      title: "Dorms & public goods",
+      body: "Shared spaces (cleaning, elevators) pair private costs with shared benefits—rules (rotations, cost shares) change payoffs and can support more cooperative outcomes.",
     },
   },
 ];

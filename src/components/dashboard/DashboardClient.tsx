@@ -14,15 +14,12 @@ export function DashboardClient() {
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         className="max-w-2xl"
       >
-        <p className="text-xs font-medium uppercase tracking-[0.2em] text-[color:var(--color-wood)]">
-          Dashboard
-        </p>
+        <p className="text-xs font-medium uppercase tracking-[0.2em] text-[color:var(--color-wood)]">Dashboard</p>
         <h1 className="mt-3 font-serif text-4xl tracking-tight text-[color:var(--color-navy)] md:text-5xl">
-          项目概览
+          Project overview
         </h1>
         <p className="mt-4 text-base leading-relaxed text-[color:var(--color-muted)]">
-          以四门《产业经济学》课程为内容域，串联动态教材、知识图谱与 AI
-          协同审核流程。以下指标为演示数据，用于高保真原型评审。
+          Four industrial economics courses anchor the knowledge graph, living textbook, and AI-assisted review flow. Metrics below are mock data for the prototype.
         </p>
       </motion.div>
 

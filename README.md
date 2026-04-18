@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Education reform demo · Dynamic textbook
 
-## Getting Started
+English UI. Next.js (App Router) prototype: dashboard, knowledge graph, living textbook (Industrial Economics IV aligned with the Yu & Xu lecture notes PDF), and an AI review simulation.
 
-First, run the development server:
+## Run locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000). No `basePath` is used locally.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deploy on GitHub Pages (GitHub only)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The site is a **static export** (`next.config.ts` uses `output: "export"`). The workflow [`.github/workflows/deploy-github-pages.yml`](.github/workflows/deploy-github-pages.yml) builds with:
 
-## Learn More
+`NEXT_PUBLIC_BASE_PATH=/<repository-name>`
 
-To learn more about Next.js, take a look at the following resources:
+so asset URLs match `https://<user>.github.io/<repository-name>/`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Push this repo to GitHub.
+2. **Settings → Pages → Build and deployment**: set **Source** to **GitHub Actions** (not “Deploy from a branch”).
+3. Allow the workflow to run on `main`. After the first successful run, the site URL will be shown on the workflow run and under Pages settings.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+If you rename the repository, the base path changes—re-run the workflow (it reads `github.event.repository.name`).
 
-## Deploy on Vercel
+### Manual build (check before CI)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+NEXT_PUBLIC_BASE_PATH=/your-repo-name npm run build
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Static files are written to `out/`.
+
+## Routes
+
+| Path | Page |
+|------|------|
+| `/` | Dashboard |
+| `/knowledge-graph/` | Knowledge graph |
+| `/textbook-demo/` | Living textbook |
+| `/ai-review/` | AI review |
+
+## Stack
+
+Next.js, Tailwind CSS, Framer Motion, `react-force-graph-2d`.
